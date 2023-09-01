@@ -56,5 +56,5 @@ for ember in emberek:
 
 
 
-print("Típus ", type(emberek))    
+ 
 
