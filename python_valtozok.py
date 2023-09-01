@@ -38,6 +38,7 @@ print("A programozok típusa: ", type(programozok))
 #TypeError: can only concatenate tuple (not "list") to tuple
 #emberek = tanulok + tanulok2
 
+# list
 #emberek = list(tanulok) + tanulok2
 
 #TypeError: can only concatenate list (not "dict") to list
