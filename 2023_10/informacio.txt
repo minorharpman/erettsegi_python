@@ -1,0 +1,24 @@
+Kódolás Pycharm editor segítségével!
+
+
+
+5 unoka
+tábla, dobókocka , 6 lúd
+ösvények, itató
+közös ösvény
+lúd lépés - dobás érték
+különleges mező:
+lúd előreugorhat még egyszer annyit
+vissza kell térnie a mezőre ahonnan dobott
+
+
+osvenyek.txt
+50 sor
+M - normál
+E előre ugorhat, duplán léphet
+V -vissza ahonnan dobott
+
+
+különleges között legalább 6M
+
+dobasok.txt
