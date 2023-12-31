@@ -81,10 +81,11 @@ print( "játékosok száma:" +str(jatekosSzam))
 
 lepesTarolo = []
 
+# lépés LIST létrehozás [] elemmel, hogy lehessen hozzáadni
 for jatekos in range(jatekosSzam) :
     lepesTarolo.insert(jatekos, [])
 
-
+# lepesTarolo feltöltés
 for i in range(0, len(DobasTomb), jatekosSzam):
     #print (dobas)
     for jatekos in range(jatekosSzam) :
@@ -92,14 +93,24 @@ for i in range(0, len(DobasTomb), jatekosSzam):
         #print(lepteto)
         #védelem  IndexError: list index out of range
         try:
-          lepesTarolo[jatekos].append(DobasTomb[lepteto])
+          lepesTarolo[jatekos].append(int(DobasTomb[lepteto]))
         except:
-          print( "out")
+          print( "  ")
 
 
-
+'''
 print(lepesTarolo[0])
 print(lepesTarolo[1])
 print(lepesTarolo[2])
 print(lepesTarolo[3])
 print(lepesTarolo[4])
+'''
+
+for sor in lepesTarolo:
+    #print(sor)
+    print ("sor: "+ str(sum(sor)) + " kör: " + str(int(len(sor)/jatekosSzam)))
+
+
+print("8. feladat ")
+
+
