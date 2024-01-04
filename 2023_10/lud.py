@@ -77,49 +77,43 @@ print("E: " + str(szamE) + " darab ")
 
 print("7. feladat ")
 
-#megoldás:
+
+# 5 ember max, Egy ilyen alkalommal az öt unoka egy régi dobozra bukkant
 megtett = [0, 0, 0, 0, 0]
+
 # osvenyt kell vegigjarni a jatekosvaltassal
 
-print( "játékosok száma:" +str(jatekosSzam))
+#print( "játékosok száma:" +str(jatekosSzam))
+
+kor=0
+ut = 0
+while ut < len(adottSorList):
+  for jatekos in range(int(jatekosSzam)):
+      #print('jatekos:', jatekos)
+      #print(adottSorList[helySzam])
+      dobas = DobasTomb[jatekos + kor*jatekosSzam]
+      #print('jatekos:', jatekos, 'dobas', dobas)
+      megtett[jatekos] = int(dobas) + megtett[jatekos]
+      ut = megtett[jatekos]
+
+  kor += 1
+
+print(kor)
+print(megtett)
+
+leghosszabb =0
+jatekosIndex = 0
+szamlalo = 0
+for n in megtett:
+  szamlalo +=1
+  if(n > leghosszabb) :
+      leghosszabb = n
+      jatekosIndex =szamlalo
 
 
-#Ez a lenti rész felejtős
-lepesTarolo = []
-
-# lépés LIST létrehozás [] elemmel, hogy lehessen hozzáadni
-for jatekos in range(jatekosSzam) :
-    lepesTarolo.insert(jatekos, [])
-
-sorszam = 0
-# lepesTarolo feltöltés
-for i in range(0, len(DobasTomb), jatekosSzam):
-
-    if( len(adottSorList) < sorszam ) : break
-    #print (dobas)
-    for jatekos in range(jatekosSzam) :
-        lepteto = int(jatekos)+int(i)
-        #print(lepteto)
-        #védelem  IndexError: list index out of range
-        try:
-          lepesTarolo[jatekos].append(int(DobasTomb[lepteto]))
-        except:
-          print( "  ")
-
-    sorszam += 5
+print('A játék a(z) ', kor, '. körben fejeződött be. A legtávolabb jutó(k) sorszáma:',  jatekosIndex)
 
 
-'''
-print(lepesTarolo[0])
-print(lepesTarolo[1])
-print(lepesTarolo[2])
-print(lepesTarolo[3])
-print(lepesTarolo[4])
-'''
-
-for sor in lepesTarolo:
-    #print(sor)
-    print ("sor: "+ str(sum(sor)) + " kör: " + str(int(len(sor)/jatekosSzam)))
 
 
 print("8. feladat ")
