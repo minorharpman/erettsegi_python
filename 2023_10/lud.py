@@ -77,45 +77,81 @@ print("E: " + str(szamE) + " darab ")
 
 print("7. feladat ")
 
-
 # 5 ember max, Egy ilyen alkalommal az öt unoka egy régi dobozra bukkant
 megtett = [0, 0, 0, 0, 0]
 
 # osvenyt kell vegigjarni a jatekosvaltassal
 
-#print( "játékosok száma:" +str(jatekosSzam))
+# print( "játékosok száma:" +str(jatekosSzam))
 
-kor=0
+kor = 0
 ut = 0
 while ut < len(adottSorList):
-  for jatekos in range(int(jatekosSzam)):
-      #print('jatekos:', jatekos)
-      #print(adottSorList[helySzam])
-      dobas = DobasTomb[jatekos + kor*jatekosSzam]
-      #print('jatekos:', jatekos, 'dobas', dobas)
-      megtett[jatekos] = int(dobas) + megtett[jatekos]
-      ut = megtett[jatekos]
+    for jatekos in range(int(jatekosSzam)):
+        # print('jatekos:', jatekos)
+        # print(adottSorList[helySzam])
+        dobas = DobasTomb[jatekos + kor * jatekosSzam]
+        # print('jatekos:', jatekos, 'dobas', dobas)
+        megtett[jatekos] = int(dobas) + megtett[jatekos]
+        ut = megtett[jatekos]
+    # print('jatekos:', jatekos, 'ut', ut)
 
-  kor += 1
+    kor += 1
 
 print(kor)
 print(megtett)
 
-leghosszabb =0
+leghosszabb = 0
 jatekosIndex = 0
 szamlalo = 0
 for n in megtett:
-  szamlalo +=1
-  if(n > leghosszabb) :
-      leghosszabb = n
-      jatekosIndex =szamlalo
+    szamlalo += 1
+    if (n > leghosszabb):
+        leghosszabb = n
+        jatekosIndex = szamlalo
 
-
-print('A játék a(z) ', kor, '. körben fejeződött be. A legtávolabb jutó(k) sorszáma:',  jatekosIndex)
-
-
+# print('A játék a(z) ', kor, '. körben fejeződött be. A legtávolabb jutó(k) sorszáma:',  jatekosIndex)
 
 
 print("8. feladat ")
 
+megtett2 = [0, 0, 0, 0, 0]
 
+# osvenyt kell vegigjarni a jatekosvaltassal
+
+# print( "játékosok száma:" +str(jatekosSzam))
+
+kor = 0
+ut = 0
+while ut < len(adottSorList):
+    for jatekos in range(int(jatekosSzam)):
+        # print('jatekos:', jatekos)
+        # print(adottSorList[helySzam])
+        tarol = jatekos + kor * jatekosSzam
+        if (1==1 ):
+            #dobas = DobasTomb[tarol]
+            dobas = DobasTomb[jatekos + kor * jatekosSzam]
+            # print('jatekos:', jatekos, 'dobas', dobas)
+            # if (megtett[jatekos] < len(adottSorList)):
+            # print('ertek:', adottSorList[ut], 'ut', ut)
+            megtett2[jatekos] = int(dobas) + megtett2[jatekos]
+            #print('jatekos:', jatekos, 'dobas', int(dobas), 'ut', ut, 'tipus', adottSorList[ut])
+            '''
+            if (ut < len(adottSorList) and  adottSorList[ut] == 'M'):
+                megtett[jatekos] = int(dobas) + megtett[jatekos]
+                print('jatekos:', jatekos, 'dobas', int(dobas), 'ut', ut, 'tipus', adottSorList[ut])
+            if (ut < len(adottSorList) and adottSorList[ut] == 'E'):
+                megtett[jatekos] = 2*int(dobas) + megtett[jatekos]
+                print('jatekos:', jatekos, 'dobas', int(dobas), 'ut', ut, 'tipus', adottSorList[ut])
+            if (ut < len(adottSorList) and adottSorList[ut] == 'X'):
+                #megtett[jatekos] = megtett[jatekos]
+                print('jatekos:', jatekos, 'dobas', int(dobas), 'ut', ut, 'tipus', adottSorList[ut])
+            '''
+
+            ut = megtett2[jatekos]
+
+
+kor += 1
+
+print(kor)
+print(megtett2)
