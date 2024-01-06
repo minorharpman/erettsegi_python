@@ -161,7 +161,7 @@ tobbiH = []
 tobbiSz = []
 index =0
 for n in megtett:
-    print( 'n index:', index)
+    #print( 'n index:', index)
     if (n >= len(adottSorList)):
         nyertesH.append(n)
         nyertesSz.append(index+1)
@@ -171,5 +171,5 @@ for n in megtett:
 
     index +=1
 
-print('nyertes szam', nyertesSz, 'tobbi szam', tobbiSz)
+print('nyertes szamú játékosok', nyertesSz, 'tobbi szamú jatékosok', tobbiSz)
 print('nyertes hossz', nyertesH, 'tobbi hossz', tobbiH)
