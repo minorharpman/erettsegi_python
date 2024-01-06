@@ -86,6 +86,7 @@ megtett = [0, 0, 0, 0, 0]
 
 kor = 0
 ut = 0
+
 while ut < len(adottSorList):
     for jatekos in range(int(jatekosSzam)):
         # print('jatekos:', jatekos)
@@ -99,7 +100,7 @@ while ut < len(adottSorList):
     kor += 1
 
 print(kor)
-print(megtett)
+print('7', megtett)
 
 leghosszabb = 0
 jatekosIndex = 0
@@ -110,48 +111,65 @@ for n in megtett:
         leghosszabb = n
         jatekosIndex = szamlalo
 
-# print('A játék a(z) ', kor, '. körben fejeződött be. A legtávolabb jutó(k) sorszáma:',  jatekosIndex)
+print('A játék a(z) ', kor, '. körben fejeződött be. A legtávolabb jutó(k) sorszáma:',  jatekosIndex)
 
 
 print("8. feladat ")
 
-megtett2 = [0, 0, 0, 0, 0]
+megtett = [0, 0, 0, 0, 0]
 
 # osvenyt kell vegigjarni a jatekosvaltassal
 
 # print( "játékosok száma:" +str(jatekosSzam))
 
 kor = 0
-ut = 0
-while ut < len(adottSorList):
+maxtav = 0
+
+print('ösvény hossza:', len(adottSorList))
+while maxtav < len(adottSorList):
     for jatekos in range(int(jatekosSzam)):
-        # print('jatekos:', jatekos)
-        # print(adottSorList[helySzam])
-        tarol = jatekos + kor * jatekosSzam
-        if (1==1 ):
-            #dobas = DobasTomb[tarol]
-            dobas = DobasTomb[jatekos + kor * jatekosSzam]
-            # print('jatekos:', jatekos, 'dobas', dobas)
-            # if (megtett[jatekos] < len(adottSorList)):
-            # print('ertek:', adottSorList[ut], 'ut', ut)
-            megtett2[jatekos] = int(dobas) + megtett2[jatekos]
-            #print('jatekos:', jatekos, 'dobas', int(dobas), 'ut', ut, 'tipus', adottSorList[ut])
-            '''
-            if (ut < len(adottSorList) and  adottSorList[ut] == 'M'):
+
+        dobas = DobasTomb[jatekos + kor * jatekosSzam]
+        #print('jatekos:', jatekos, 'dobas', dobas)
+        megtett[jatekos] = int(dobas) + megtett[jatekos]
+
+        # Igazítás V, E esetén
+        if (megtett[jatekos] < len(adottSorList)):
+
+            #print('jatekos:', jatekos, 'dobas', int(dobas), 'út', megtett[jatekos], 'tipus', adottSorList[maxtav], 'maxtav', maxtav)
+
+            if (adottSorList[megtett[jatekos]-1] == 'E'):
                 megtett[jatekos] = int(dobas) + megtett[jatekos]
-                print('jatekos:', jatekos, 'dobas', int(dobas), 'ut', ut, 'tipus', adottSorList[ut])
-            if (ut < len(adottSorList) and adottSorList[ut] == 'E'):
-                megtett[jatekos] = 2*int(dobas) + megtett[jatekos]
-                print('jatekos:', jatekos, 'dobas', int(dobas), 'ut', ut, 'tipus', adottSorList[ut])
-            if (ut < len(adottSorList) and adottSorList[ut] == 'X'):
-                #megtett[jatekos] = megtett[jatekos]
-                print('jatekos:', jatekos, 'dobas', int(dobas), 'ut', ut, 'tipus', adottSorList[ut])
-            '''
+                #print('jatekos:', jatekos, 'dobas', int(dobas), 'út', megtett[jatekos], 'tipus', adottSorList[maxtav],  'maxtav', maxtav)
 
-            ut = megtett2[jatekos]
+            if (adottSorList[megtett[jatekos]-1] == 'V'):
+                megtett[jatekos] = megtett[jatekos] - int(dobas)
+                #print('jatekos:', jatekos, 'dobas', int(dobas), 'út', megtett[jatekos], 'tipus', adottSorList[maxtav],  'maxtav', maxtav)
+        #ne vegtelen ciklusba menjen
+        maxtav = max(maxtav, megtett[jatekos])
 
-
-kor += 1
+    kor += 1
 
 print(kor)
-print(megtett2)
+
+print('ösvény hossza:', len(adottSorList))
+print('8', megtett)
+
+nyertesH = []
+nyertesSz = []
+tobbiH = []
+tobbiSz = []
+index =0
+for n in megtett:
+    print( 'n index:', index)
+    if (n >= len(adottSorList)):
+        nyertesH.append(n)
+        nyertesSz.append(index+1)
+    else:
+        tobbiH.append(n)
+        tobbiSz.append(index+1)
+
+    index +=1
+
+print('nyertes szam', nyertesSz, 'tobbi szam', tobbiSz)
+print('nyertes hossz', nyertesH, 'tobbi hossz', tobbiH)
