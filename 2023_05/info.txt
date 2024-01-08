@@ -2,3 +2,6 @@
 
 https://www.oktatas.hu/kozneveles/erettsegi/feladatsorok/emelt_szint_2023tavasz/emelt_12nap
 
+640x360 méret
+R , G , B
+
